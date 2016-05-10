@@ -1,0 +1,54 @@
+﻿@model Entity7Mvc.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Post</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Header)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Header)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+        <dt>
+            Comments
+        </dt>
+        <dd>
+            <dl>
+                <dt>
+                    @Html.ActionLink("yeni comment", "Create", "Comments", new {postId=Model.PostId }, null)
+                </dt>
+                @if (Model.Comments != null && Model.Comments.Count > 0)
+                {
+                    foreach (var m in Model.Comments)
+                    {
+
+                        <dt>@m.Author </dt>
+                        <dd>@m.Content</dd>
+
+                    }
+                }
+            </dl>
+        </dd>
+    </dl>
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PostId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

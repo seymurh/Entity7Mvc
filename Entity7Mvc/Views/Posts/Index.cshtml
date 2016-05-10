@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Entity7Mvc.Models.Post>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table ng-controller="post" class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Header)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th></th>
+    </tr>
+
+
+    <tr ng-repeat="post in posts">
+        <td>
+            {{post.Header}}
+        </td>
+        <td>
+           {{post.Content}}
+        </td>
+        <td>
+            <a class="btn btn-success" ng-href="/posts/Edit/{{post.PostId }}">Edit</a> 
+            <a class="btn btn-primary" ng-href="/posts/Details/{{post.PostId }}">Details</a> 
+            <a class="btn btn-danger" ng-href="/posts/Delete/{{post.PostId }}">Delete</a> 
+            @*@Html.ActionLink("Details", "Details", new { id = post.PostId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = post.PostId })*@
+        </td>
+    </tr>
+
+
+</table>
+@section scripts{
+    <script type="text/javascript">
+        app.factory("postservices", function ($http) {
+            return  {
+                Get: $http.get("/api/post")
+            }
+        });
+        //app.service("postservices", function ($http) {
+        //        this.Get = $http.get("/api/post");
+        //});
+        app.controller('post', function ($scope, $http, $resource) {
+            //postservices.Get.then(function (response) {
+            //    //console.log(data.data);
+            //    $scope.posts = response.data;
+            //});
+            //get()
+            //query()
+            //save()
+            //remove()
+            //delete()
+            var postSer = $resource("/api/post/:id");
+           // postSer.save({ PostId: 18, Header: 'res head', Content: 'res content' });
+            $scope.posts = postSer.query();
+          //  var post = postSer.get({ id: 18 });
+            postSer.remove({ id: 18 });
+          
+           // console.log(post);
+        });
+    </script>
+
+}

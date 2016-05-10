@@ -1,0 +1,100 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+
+    <script>document.write('<base href="' + document.location + '" />');</script>
+
+    <script src="../../Client/js/lib/@angular/es6-shim.min.js"></script>
+    <script src="../../Client/js/lib/@angular/zone.js"></script>
+    <script src="../../Client/js/lib/@angular/Reflect.js"></script>
+   <!-- <script src="js/lib/@angular/system.src.js"></script>-->
+    <script src="../../Client/js/lib/@angular/system.src.js"></script>
+   
+    <script src="../../Client/js/system.config.js"></script>
+    <script>
+        System.import('app').catch(function(err){ console.error(err);  });
+    </script>
+
+    <!--<script src="js/lib/@angular/system-polyfills.js"></script>-->
+
+
+
+    <!--<script src="js/lib/@angular/Rx.js"></script>-->
+    <!--<script src="js/lib/@angular/core/index.js"></script>-->
+    <!--<script src="js/lib/@angular/common/index.js"></script>-->
+
+
+    <!--<script src="js/lib/@angular/http/index.js"></script>-->
+    <!--&lt;!&ndash;<script src="js/lib/@angular/router/index.js"></script>&ndash;&gt;-->
+    <!--<script src="js/lib/@angular/router-deprecated/index.js"></script>-->
+    <!--<script src="js/lib/@angular/platform-browser-dynamic/index.js"></script>-->
+    
+
+    <script src="../../Scripts/jquery-1.10.2.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <!--<script src="js/app.component.js.map"></script>-->
+    <!--<script src="js/app.component.js"></script>-->
+
+    <script>
+//        System.config({
+//            packages: {
+//                appjs: {
+//                    format: 'register',
+//                    defaultExtension: 'js'
+//                },
+//                primeng: {
+//                    format: 'cjs',
+//                    defaultExtension: 'js'
+//                }
+//            },
+//            map: {
+//                'primeng': 'lib'
+//            }
+//        });
+        System.config({
+            packages: {
+                js: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                }
+            }
+        });
+        //        System.config({
+        //            transpiler: 'typescript',
+        //            typescriptOptions: { emitDecoratorMetadata: true },
+        //            packages: {'app': {defaultExtension: 'ts'}}
+        //        });
+        //        System.import('js/boot')
+        //                .then(null, console.error.bind(console));
+       
+        System.import('../../Client/js/boot')
+                .then(null, console.error.bind(console));
+
+    </script>
+</head>
+<body>
+<routing></routing>
+<!--<my-app></my-app>-->
+<!--<main></main>-->
+<!--<observ></observ>-->
+<!--<http></http>-->
+
+<!--<search></search>-->
+<!--<div class="row">-->
+    <!--<cold></cold>-->
+<!--</div>-->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+//        $.get("./temp.html").done(function(data){
+//            $('k').innerHTML=data;
+//        });
+    });
+</script>
+</body>
+</html>
